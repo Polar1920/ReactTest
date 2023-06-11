@@ -9,6 +9,10 @@ import {
   TouchableOpacity,
   Modal,
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Screen, ScreenStack } from 'react-native-screens';
 
 export default function ProfileScreen({ navigation, route }) {
     return (
@@ -19,7 +23,6 @@ export default function ProfileScreen({ navigation, route }) {
                 placeholder="Escribe tu nombre"
             />
             <Button title="Conectar con Google" />
-            <Button title="Volver" />
         </View>
     );
 }

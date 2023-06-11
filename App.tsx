@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Screen, ScreenStack } from 'react-native-screens';
 //import { useNavigation } from 'react-navigation';
 import HomeScreen from './screens/home';
@@ -29,10 +29,25 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{title: 'Tareas'}}
+          options={{ title: 'Tareas - Polar Tasks'}}
         />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen 
+          name="Profile" 
+          component={ProfileScreen} 
+          options={{ title: 'Perfil' }}
+        />
+        <Stack.Screen
+          name="Calendar"
+          component={CalendarScreen}
+          options={{ title: 'Calendario' }}
+        />
+        <Stack.Screen
+         name="About"
+         component={AboutScreen}
+         options={{ title: 'Acerca de' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+

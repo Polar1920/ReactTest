@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   StyleSheet,
   Text,
@@ -14,7 +14,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { Screen, ScreenStack } from 'react-native-screens';
 //import { useNavigation } from 'react-navigation';
-
+import Home from './home';
+import ProfileScreen from './profile';
+import CalendarScreen from './calendar';
+import AboutScreen from './about';
 
 type Note = {
   id: number;
@@ -160,10 +163,6 @@ export default function HomeScreen({navigation}) {
       {isOpen && (
         <View style={styles.menu}>
           <Button
-            title="Inicio"
-            onPress={() => setTab('Por Hacer')}
-          />
-          <Button
             title="Perfil"
             onPress={() => {
               // Navigate to the ProfileScreen
@@ -172,15 +171,14 @@ export default function HomeScreen({navigation}) {
           />
           <Button
             title="Calendario"
-            onPress={() => setTab('Por Hacer')}
+            onPress={() => navigation.navigate('Calendar', {data0: '10'})}
           />
           <Button
             title="Acerca de"
-            onPress={() => setTab('Completadas')}
+            onPress={() => navigation.navigate('About', {data0: '10'})}
           />
         </View>
       )}
-      <Text style={styles.title}>Polar Tasks</Text>
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
@@ -258,10 +256,6 @@ export default function HomeScreen({navigation}) {
   );
 }
 
-const Perfil = ({navigation, route}) => {
-    return <Text>This is {route.params.data0}'s profile</Text>;
-  };
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -276,6 +270,7 @@ const styles = StyleSheet.create({
     inputContainer: {
         flexDirection: 'row',
         marginBottom: 20,
+        marginTop: 20,
     },
     input: {
         flex: 1,
@@ -334,5 +329,5 @@ const styles = StyleSheet.create({
     },
     selectedColorOption: {
         borderColor: '#fff',
-    },
+    }
 });
