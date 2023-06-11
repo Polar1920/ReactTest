@@ -1,4 +1,9 @@
 {
   "name": "ReactTest",
-  "displayName": "ReactTest"
+  "displayName": "ReactTest",
+  "extra": {
+    "eas": {
+      "projectId": "6ea772c0-0eb9-4416-a78f-a92d7c2d6876"
+    }
+  }
 }
